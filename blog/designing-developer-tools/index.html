@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designing Developer Tools That People Actually Use — Bridgeberg</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 14px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: #1a1a1a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      padding: 2.5rem 0 0;
+    }
+    .site-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .site-name a { text-decoration: none; }
+    .nav-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 0.75rem;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      overflow: hidden;
+      width: fit-content;
+    }
+    .nav-tabs a {
+      display: block;
+      padding: 0.4rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+      border-right: 1px solid #e5e5e5;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-tabs a:last-child { border-right: none; }
+    .nav-tabs a:hover { background: #f5f5f5; color: #1a1a1a; }
+    .nav-tabs a.active { color: #1a1a1a; font-weight: 500; }
+
+    /* Section */
+    .section { margin-top: 2.5rem; }
+    .section-heading {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+    .section hr {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin-bottom: 1rem;
+    }
+
+    /* Blockquote */
+    blockquote {
+      border-left: 3px solid #1a1a1a;
+      padding-left: 1rem;
+      font-style: italic;
+      color: #444;
+      margin: 1rem 0;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border: 1px solid #e5e5e5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover {
+      background: #f5f5f5;
+      border-color: #ccc;
+      text-decoration: none;
+    }
+
+    /* Contact table */
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .contact-table td {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .contact-table td:first-child {
+      color: #666;
+      width: 100px;
+    }
+    .contact-table a { text-decoration: underline; }
+
+    /* Philosophy sidebar */
+    .philosophy-box {
+      border: 1px solid #e5e5e5;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #666;
+    }
+    .philosophy-box p {
+      margin-bottom: 0.5rem;
+    }
+    .philosophy-box p:last-child { margin-bottom: 0; }
+
+    /* Blog table */
+    .blog-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .blog-table th {
+      text-align: left;
+      font-weight: 500;
+      color: #666;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.5rem 0.5rem 0.5rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .blog-table td {
+      padding: 0.6rem 0.5rem 0.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+    }
+    .blog-table .date-col {
+      color: #999;
+      white-space: nowrap;
+      width: 90px;
+    }
+    .blog-table .title-col a {
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+    .blog-table .tags-col {
+      color: #999;
+      font-size: 0.75rem;
+    }
+
+    /* Category filter pills */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .filter-pill {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid #e5e5e5;
+      font-size: 0.75rem;
+      color: #666;
+      border-radius: 2px;
+      text-decoration: none;
+    }
+    .filter-pill:hover { background: #f5f5f5; text-decoration: none; }
+    .filter-pill.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+
+    /* Tag pills */
+    .tag-pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid #e5e5e5;
+      font-size: 0.6875rem;
+      color: #666;
+      border-radius: 2px;
+      margin: 0.15rem 0.15rem 0.15rem 0;
+      text-decoration: none;
+    }
+
+    /* Tags row */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .hash-tag {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    /* Project cards */
+    .projects-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .projects-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 640px) {
+      .projects-grid-2, .projects-grid-3 { grid-template-columns: 1fr; }
+    }
+    .project-card {
+      border: 1px solid #e5e5e5;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card-body {
+      padding: 1rem;
+      flex: 1;
+    }
+    .project-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-card-icon { font-size: 1.25rem; }
+    .project-card-name {
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .project-card-status {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 1px 6px;
+      border-radius: 2px;
+      margin-left: auto;
+    }
+    .status-featured { background: #2d7a4a; color: #fff; }
+    .status-active { background: #2d5a8a; color: #fff; }
+    .status-archived { background: #ccc; color: #666; }
+    .project-card-desc {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.75rem;
+    }
+    .project-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .project-card-link {
+      display: block;
+      text-align: center;
+      padding: 0.5rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .project-card-link:hover { background: #f5f5f5; text-decoration: none; }
+    .project-card.archived {
+      opacity: 0.5;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 640px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    .skill-box {
+      border: 1px solid #e5e5e5;
+      padding: 1rem;
+    }
+    .skill-box-name {
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      color: #666;
+    }
+    .skill-box-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .timeline-year {
+      display: inline-block;
+      background: #2d7a4a;
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 2px;
+      white-space: nowrap;
+      min-width: 50px;
+      text-align: center;
+    }
+    .timeline-desc {
+      font-size: 0.8125rem;
+      color: #444;
+      padding-top: 1px;
+    }
+
+    /* Links table */
+    .links-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+    .links-table td {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .links-table a { text-decoration: underline; }
+
+    /* Post detail */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-size: 0.8125rem;
+      color: #666;
+    }
+    .back-link:hover { color: #1a1a1a; }
+    .post-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      font-size: 0.8125rem;
+      color: #999;
+    }
+
+    /* Prose (article body) */
+    .prose h1 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    .prose h2 { font-size: 1.125rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    .prose h3 { font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    .prose p { margin-bottom: 1rem; color: #333; line-height: 1.8; }
+    .prose a { text-decoration: underline; }
+    .prose code {
+      background: #f5f5f5;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      font-size: 0.85em;
+    }
+    .prose hr { border: none; border-top: 1px solid #e5e5e5; margin: 2rem 0; }
+    .prose strong { font-weight: 700; }
+    .prose em { font-style: italic; }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.6875rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.6875rem;
+    }
+    .footer-links a:hover { color: #1a1a1a; text-decoration: none; }
+    .footer-built {
+      width: 100%;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .footer-built a { color: #999; text-decoration: underline; }
+    .footer-built a:hover { color: #1a1a1a; }
+
+    /* Home layout with sidebar */
+    .home-layout {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .home-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Featured project card on home */
+    .featured-home-card {
+      border: 1px solid #e5e5e5;
+      padding: 1rem;
+      margin-top: 0.75rem;
+    }
+    .featured-home-card-name {
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+    .featured-home-card-desc {
+      font-size: 0.75rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container">
+      <div class="site-name"><a href="/bridgeberg-site/">Bridgeberg</a></div>
+      <div style="display:flex;gap:0;overflow:hidden;margin:0.75rem 0;"><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span><span style="display:inline-block;width:16px;height:4px;background:#3498db;"></span><span style="display:inline-block;width:16px;height:4px;background:#9b59b6;"></span><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span><span style="display:inline-block;width:16px;height:4px;background:#3498db;"></span><span style="display:inline-block;width:16px;height:4px;background:#9b59b6;"></span><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span><span style="display:inline-block;width:16px;height:4px;background:#3498db;"></span><span style="display:inline-block;width:16px;height:4px;background:#9b59b6;"></span><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span><span style="display:inline-block;width:16px;height:4px;background:#3498db;"></span><span style="display:inline-block;width:16px;height:4px;background:#9b59b6;"></span><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span><span style="display:inline-block;width:16px;height:4px;background:#3498db;"></span><span style="display:inline-block;width:16px;height:4px;background:#9b59b6;"></span><span style="display:inline-block;width:16px;height:4px;background:#e74c3c;"></span><span style="display:inline-block;width:16px;height:4px;background:#e67e22;"></span><span style="display:inline-block;width:16px;height:4px;background:#f1c40f;"></span><span style="display:inline-block;width:16px;height:4px;background:#2ecc71;"></span><span style="display:inline-block;width:16px;height:4px;background:#1abc9c;"></span></div>
+      <nav class="nav-tabs">
+      <a href="/bridgeberg-site/">Home</a>
+      <a href="/bridgeberg-site/blog/" class="active"><span style="color:#2d7a4a;">&#9679;</span> Blog</a>
+      <a href="/bridgeberg-site/projects/">Projects</a>
+      <a href="/bridgeberg-site/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:1.5rem;padding-bottom:2rem;">
+
+    <a href="/bridgeberg-site/blog/" class="back-link">&larr; Back to Blog</a>
+
+    <h1 class="post-title">Designing Developer Tools That People Actually Use</h1>
+
+    <div class="post-meta">
+      <span>Jan 20, 2026</span>
+      <span style="display:inline-block;background:#a68b2d;color:#fff;font-size:0.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:2px 8px;border-radius:2px;">design</span>
+    </div>
+
+    <article class="prose">
+      <h2>The DX Hierarchy</h2>
+<p>Developer experience is not a single metric — it is a hierarchy. At the base: does it work? Then: is it fast? Then: is it predictable? And finally: is it delightful? Most tools fail at level two or three. They work in demos but surprise you in production.</p>
+<p>The tools that developers love — Git, curl, jq, ripgrep — share common traits. They are fast, predictable, composable, and honest about their limitations.</p>
+<h2>Defaults Matter More Than Features</h2>
+<p>The most impactful design decision is your defaults. Every flag a user must set is friction. Every configuration file they must create is a barrier. The zero-configuration experience should handle 80% of use cases.</p>
+<p>This does not mean removing options — it means choosing sensible defaults and making the common case effortless. Prettier succeeded not because it formats code, but because it formats code with zero configuration.</p>
+<h2>Error Messages Are UI</h2>
+<p>For CLI tools and APIs, error messages are your primary user interface. A good error message tells the user: what happened, why it happened, and what to do about it. Rust's compiler is the gold standard here — every error includes context, suggestions, and often the exact fix.</p>
+<p>Invest as much time in your error messages as you do in your happy path. Users only read your documentation when something goes wrong.</p>
+<h2>Composability Over Completeness</h2>
+<p>Do not try to be everything. The Unix philosophy works: do one thing well, accept stdin, produce stdout, exit with meaningful codes. Tools that try to be complete solutions end up being mediocre at everything. Tools that compose well become indispensable.</p>
+    </article>
+
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>© 2020-2026, BRIDGEBERG. ALL RIGHTS RESERVED.</span>
+        <div class="footer-links">
+          <a href="https://x.com/bridgeberg">@BRIDGEBERG</a>
+        <a href="https://github.com/bridgeberg">GITHUB</a>
+        <a href="/rss.xml">RSS</a>
+        </div>
+      </div>
+      <div class="footer-built">Built with <a href="https://webhouse.app" target="_blank" rel="noopener">@webhouse/cms</a></div>
+    </div>
+  </footer>
+</body>
+</html>
