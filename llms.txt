@@ -4,15 +4,15 @@
 
 ## Pages
 
-- [About — Bridgeberg](https://bridgeberg.webhouse.app/about/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [AI-Assisted Code Review: What Works and What Doesn't — Bridgeberg](https://bridgeberg.webhouse.app/blog/ai-assisted-code-review/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Building Type-Safe APIs with tRPC and Zod — Bridgeberg](https://bridgeberg.webhouse.app/blog/building-type-safe-apis/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Designing Developer Tools That People Actually Use — Bridgeberg](https://bridgeberg.webhouse.app/blog/designing-developer-tools/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Blog — Bridgeberg](https://bridgeberg.webhouse.app/blog/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Kubernetes Secrets Management Done Right — Bridgeberg](https://bridgeberg.webhouse.app/blog/kubernetes-secrets-management/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Rust for Node.js Developers: A Practical Guide — Bridgeberg](https://bridgeberg.webhouse.app/blog/rust-for-node-developers/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Zero Trust Architecture for Small Teams — Bridgeberg](https://bridgeberg.webhouse.app/blog/zero-trust-architecture/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [About — Bridgeberg](https://bridgeberg.webhouse.app/about/): Full-stack developer, open source contributor, and cloud architect.
+- [AI-Assisted Code Review: What Works and What Doesn't — Bridgeberg](https://bridgeberg.webhouse.app/blog/ai-assisted-code-review/): After six months of using AI tools in our code review process, here is an honest assessment.
+- [Building Type-Safe APIs with tRPC and Zod — Bridgeberg](https://bridgeberg.webhouse.app/blog/building-type-safe-apis/): How to leverage end-to-end type safety to eliminate an entire class of bugs from your API layer.
+- [Designing Developer Tools That People Actually Use — Bridgeberg](https://bridgeberg.webhouse.app/blog/designing-developer-tools/): Lessons from building CLI tools, SDKs, and APIs that developers love (or at least tolerate).
+- [Blog — Bridgeberg](https://bridgeberg.webhouse.app/blog/): Articles about development, infrastructure, security, and the craft of building software.
+- [Kubernetes Secrets Management Done Right — Bridgeberg](https://bridgeberg.webhouse.app/blog/kubernetes-secrets-management/): A practical guide to managing secrets in Kubernetes without losing your mind or your data.
+- [Rust for Node.js Developers: A Practical Guide — Bridgeberg](https://bridgeberg.webhouse.app/blog/rust-for-node-developers/): What I learned transitioning from Node.js to Rust, and why the ownership model is worth the learning curve.
+- [Zero Trust Architecture for Small Teams — Bridgeberg](https://bridgeberg.webhouse.app/blog/zero-trust-architecture/): You do not need a massive security team to implement zero trust. Here is a pragmatic approach for startups.
 - [Home — Bridgeberg](https://bridgeberg.webhouse.app/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
-- [Projects — Bridgeberg](https://bridgeberg.webhouse.app/projects/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Projects — Bridgeberg](https://bridgeberg.webhouse.app/projects/): Open source projects and tools built by Bridgeberg.
 
 Built with [webhouse.app](https://webhouse.app)
