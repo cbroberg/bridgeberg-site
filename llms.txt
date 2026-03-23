@@ -18,7 +18,7 @@
 - [Monorepo Architecture with pnpm and Turborepo](https://bridgeberg.webhouse.app/blog/monorepo-architecture-pnpm-turbo/): How I structure multi-package TypeScript projects with pnpm workspaces and Turborepo — and why it's worth the initial complexity.
 - [Rust for Node.js Developers: A Practical Guide — Bridgeberg](https://bridgeberg.webhouse.app/blog/rust-for-node-developers/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility. Since 1995, I've built over 1,000 websites and 50+ mobile apps. Since 2025, AI is not a tool I use — it's how I build.
 - [Zero Trust Architecture for Small Teams — Bridgeberg](https://bridgeberg.webhouse.app/blog/zero-trust-architecture/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility. Since 1995, I've built over 1,000 websites and 50+ mobile apps. Since 2025, AI is not a tool I use — it's how I build.
-- [Home — Bridgeberg](https://bridgeberg.webhouse.app/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility. Since 1995, I've built over 1,000 websites and 50+ mobile apps. Since 2025, AI is not a tool I use — it's how I build.
+- [Home — Bridgeberg](https://bridgeberg.webhouse.app/): Christian Broberg — Founder & Chief Software Architect at WebHouse ApS. Building AI-native software since 2025, web since 1995.
 - [Projects](https://bridgeberg.webhouse.app/projects/): Open source tools, internal platforms, and AI-native systems built by Christian Broberg and WebHouse.
 
 Built with [webhouse.app](https://webhouse.app)
