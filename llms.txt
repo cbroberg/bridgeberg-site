@@ -1,0 +1,18 @@
+# Bridgeberg
+
+> I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+
+## Pages
+
+- [About — Bridgeberg](https://bridgeberg.webhouse.app/about/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [AI-Assisted Code Review: What Works and What Doesn't — Bridgeberg](https://bridgeberg.webhouse.app/blog/ai-assisted-code-review/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Building Type-Safe APIs with tRPC and Zod — Bridgeberg](https://bridgeberg.webhouse.app/blog/building-type-safe-apis/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Designing Developer Tools That People Actually Use — Bridgeberg](https://bridgeberg.webhouse.app/blog/designing-developer-tools/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Blog — Bridgeberg](https://bridgeberg.webhouse.app/blog/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Kubernetes Secrets Management Done Right — Bridgeberg](https://bridgeberg.webhouse.app/blog/kubernetes-secrets-management/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Rust for Node.js Developers: A Practical Guide — Bridgeberg](https://bridgeberg.webhouse.app/blog/rust-for-node-developers/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Zero Trust Architecture for Small Teams — Bridgeberg](https://bridgeberg.webhouse.app/blog/zero-trust-architecture/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Home — Bridgeberg](https://bridgeberg.webhouse.app/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+- [Projects — Bridgeberg](https://bridgeberg.webhouse.app/projects/): I anchor my work in the fundamentals of software engineering, its purpose, and its utility.
+
+Built with [webhouse.app](https://webhouse.app)

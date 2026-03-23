@@ -552,6 +552,22 @@
       color: #666;
     }
   </style>
+
+  <!-- webhouse.app enrichment -->
+  <meta name="generator" content="webhouse.app" />
+  <link rel="canonical" href="https://bridgeberg.webhouse.app/" />
+  <meta property="og:title" content="Home — Bridgeberg" />
+  <meta property="og:description" content="I anchor my work in the fundamentals of software engineering, its purpose, and its utility." />
+  <meta property="og:url" content="https://bridgeberg.webhouse.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bridgeberg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home — Bridgeberg" />
+  <meta name="twitter:description" content="I anchor my work in the fundamentals of software engineering, its purpose, and its utility." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#000000" />
 </head>
 <body>
 <div class="outer">
@@ -571,56 +587,60 @@
 
   <main class="main-content">
 
-    <!-- Hello section with sidebar -->
-    <div class="home-layout">
-      <div>
-        <div class="section">
-          <div class="section-heading">Hello</div>
-          <hr />
-          <p style="font-size:0.875rem;font-weight:500;margin-bottom:0.75rem;">Full Stack Developer / Open Source Contributor / Cloud Architect</p>
-          <blockquote>*Bridgeberg — A developer who believes in building tools that make infrastructure disappear. Passionate about clean APIs, elegant abstractions, and the craft of shipping.*</blockquote>
-          <p style="margin:1rem 0;font-size:0.8125rem;color:#444;">I anchor my work in the fundamentals of software engineering, its purpose, and its utility.</p>
+    <!-- Hello section with philosophy sidebar -->
+    <div class="section">
+      <div class="section-heading">Hello</div>
+      <hr />
+      <div class="home-grid">
+        <div>
+          <p style="font-size:0.875rem;margin-bottom:1rem;">Full Stack Developer / Open Source Contributor / Cloud Architect</p>
+          <blockquote><em>*Bridgeberg — A developer who believes in building tools that make infrastructure disappear. Passionate about clean APIs, elegant abstractions, and the craft of shipping.*</em></blockquote>
+          <p style="margin:1rem 0;font-size:0.875rem;">I anchor my work in the fundamentals of software engineering, its purpose, and its utility.</p>
           <div style="display:flex;align-items:center;gap:1rem;margin-top:1rem;">
-            <a href="#contact" class="btn">Contact →</a>
-            <span style="font-size:0.75rem;color:#999;">(Open for collaboration)</span>
+            <a href="#contact" class="btn btn-gold">Contact →</a>
+            <span style="font-size:0.75rem;color:#6b7280;">(Open for collaboration)</span>
           </div>
         </div>
-      </div>
-
-      <div>
-        <div class="section">
-          <div class="section-heading">Philosophy</div>
-          <hr />
+        <div>
           <div class="philosophy-box">
-            <p>Less is more.</p>
-          <p>Ship it, then iterate.</p>
-          <p>Automation over repetition.</p>
+            <div class="philosophy-box-header">Philosophy</div>
+            <div class="philosophy-box-item">Less is more.</div>
+          <div class="philosophy-box-item">Ship it, then iterate.</div>
+          <div class="philosophy-box-item">Automation over repetition.</div>
           </div>
         </div>
       </div>
     </div>
+
+    <hr class="section-divider" />
 
     <!-- Blog section -->
     <div class="section">
       <div class="section-heading">Blog</div>
       <hr />
       <p style="font-size:0.8125rem;color:#666;margin-bottom:1rem;">Writing about development, infrastructure, and everything in between.</p>
-      <a href="/blog/" class="btn">View All Posts →</a>
+      <a href="/blog/" class="btn btn-green">View All Posts →</a>
     </div>
+
+    <hr class="section-divider" />
 
     <!-- Projects section -->
     <div class="section">
       <div class="section-heading">Projects</div>
       <hr />
-      <p style="font-size:0.8125rem;color:#666;margin-bottom:1rem;">In 2025, focused on cloud-native tooling. Building open source infrastructure at Bridgeberg Labs.</p>
-      <div class="featured-home-card">
+      <div class="home-grid">
+        <div>
+          <p style="font-size:0.875rem;margin-bottom:1rem;">In 2025, focused on cloud-native tooling. Building open source infrastructure at Bridgeberg Labs.</p>
+          <a href="/projects/" class="btn btn-orange">View All Projects →</a>
+        </div>
+        <div><div class="featured-home-card">
         <div class="featured-home-card-name">🏗️ Bridgeberg Labs</div>
         <div class="featured-home-card-desc">Better infrastructure.</div>
-      </div>
-      <div style="margin-top:1rem;">
-        <a href="/projects/" class="btn">View All Projects →</a>
+      </div></div>
       </div>
     </div>
+
+    <hr class="section-divider" />
 
     <!-- Contact section -->
     <div class="section" id="contact">
@@ -650,5 +670,7 @@
     </div>
   </footer>
 </div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Bridgeberg","url":"https://bridgeberg.webhouse.app/","description":"I anchor my work in the fundamentals of software engineering, its purpose, and its utility."}</script>
 </body>
 </html>
