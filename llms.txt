@@ -13,6 +13,6 @@
 - [MCP Servers: Teaching AI to Manage DNS](https://bridgeberg.webhouse.app/blog/mcp-servers-dns-management/): Building a Model Context Protocol server that lets Claude manage DNS zones directly. Infrastructure as conversation.
 - [Monorepo Architecture with pnpm and Turborepo](https://bridgeberg.webhouse.app/blog/monorepo-architecture-pnpm-turbo/): How I structure multi-package TypeScript projects with pnpm workspaces and Turborepo — and why it's worth the initial complexity.
 - [Home — Bridgeberg](https://bridgeberg.webhouse.app/): Christian Broberg — Founder & Chief Software Architect at WebHouse ApS. Building AI-native software since 2025, web since 1995.
-- [Projects | Explore Our Work & Portfolio](https://bridgeberg.webhouse.app/projects/): Discover our innovative projects showcasing expertise and creative solutions. Browse our portfolio of successful projects across various industries and disciplines.
+- [Projects](https://bridgeberg.webhouse.app/projects/): Open source tools, internal platforms, and AI-native systems built by Christian Broberg and WebHouse.
 
 Built with [webhouse.app](https://webhouse.app)
